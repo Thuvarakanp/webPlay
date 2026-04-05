@@ -1,0 +1,265 @@
+/* ── Player bar — Spotify-style bottom card ── */
+.bar {
+  pointer-events: auto;
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  z-index: 40;
+  height: 72px;
+  background: #1e222d;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 16px;
+  /* hidden until a track loads */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    left 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.playlistOpen {
+  left: calc(300px + 24px);
+}
+
+/* Idle hide */
+:global(body.idle) .active {
+  opacity: 0 !important;
+  transform: translateY(16px) !important;
+  pointer-events: none !important;
+}
+:global(body.pinned) .active {
+  opacity: 1 !important;
+  transform: none !important;
+  pointer-events: auto !important;
+}
+
+/* ── Seek — spans full top edge ── */
+.seek {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.tLabel {
+  display: none;
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.45);
+  min-width: 28px;
+  white-space: nowrap;
+}
+
+.seekTrack {
+  flex: 1;
+  height: 2.5px;
+  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  position: relative;
+  touch-action: none;
+  transition: height 0.12s;
+}
+.seekTrack:hover { height: 5px; }
+
+.seekFill {
+  height: 100%;
+  width: 0%;
+  background: #FDB94E;
+  pointer-events: none;
+}
+
+/* ── Left — track info ── */
+.left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 260px;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.info { min-width: 0; }
+
+.title {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 240px;
+  line-height: 1.4;
+}
+
+.meta {
+  font-size: 11.5px;
+  color: #858a93;
+  margin-top: 1px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 240px;
+}
+
+/* ── Center — transport ── */
+.center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 28px;
+  min-width: 0;
+}
+
+.transport {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.ctrlBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  opacity: 0.65;
+  transition: opacity 0.18s, transform 0.12s, background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  touch-action: manipulation;
+}
+.ctrlBtn:hover, .ctrlBtn:active {
+  opacity: 1;
+  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.05);
+}
+.ctrlBtn.on {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.08);
+  color: #FDB94E;
+}
+
+.playBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #FDB94E;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: transform 0.12s;
+  flex-shrink: 0;
+  margin: 0 8px;
+  touch-action: manipulation;
+}
+.playBtn:hover { transform: scale(1.05); }
+.playBtn:disabled { opacity: 0.25; cursor: not-allowed; transform: none !important; }
+
+/* ── Right — shuffle/loop/vol ── */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 240px;
+  flex-shrink: 0;
+  justify-content: flex-end;
+}
+
+.volGroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 4px;
+}
+
+.volIcon {
+  color: #ffffff;
+  flex-shrink: 0;
+  opacity: 0.65;
+}
+
+.volTrack {
+  width: 90px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  touch-action: none;
+  transition: height 0.12s;
+}
+.volTrack:hover { height: 6px; }
+
+.volFill {
+  height: 100%;
+  background: #ffffff;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+/* ── Touch / Tablet ── */
+@media (pointer: coarse) {
+  .ctrlBtn { padding: 12px; }
+  .playBtn { width: 46px; height: 46px; }
+  .seekTrack { height: 6px !important; }
+  .volTrack  { height: 6px !important; }
+}
+
+@media (max-width: 768px) {
+  .bar { left: 12px; right: 12px; bottom: 12px; padding: 0 16px; gap: 10px; }
+  .playlistOpen { left: 12px; }
+  .left { width: 160px; }
+  .title, .meta { max-width: 140px; }
+  .volTrack { width: 68px; }
+}
+
+@media (max-width: 480px) {
+  .bar {
+    left: 8px; right: 8px; bottom: 8px;
+    height: auto;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 8px 14px 14px;
+    gap: 0;
+    border-radius: 12px;
+  }
+  .seek { position: relative; top: auto; left: auto; right: auto; width: 100%; display: flex; align-items: center; gap: 6px; margin-bottom: 8px; padding-top: 2px; }
+  .tLabel { display: inline; }
+  .left { width: 100%; justify-content: center; text-align: center; margin-bottom: 6px; }
+  .title { max-width: 100%; font-size: 13px; }
+  .meta  { max-width: 100%; }
+  .center { padding: 0; width: 100%; gap: 4px; }
+  .transport { justify-content: center; }
+  .right { width: 100%; justify-content: center; gap: 6px; margin-top: 6px; }
+  .volTrack { width: 100px; }
+  .volGroup { margin-left: 0; }
+  .ctrlBtn { padding: 11px; }
+  .playBtn { width: 44px; height: 44px; }
+}

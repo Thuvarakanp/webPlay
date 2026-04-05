@@ -1,0 +1,146 @@
+/* ════════════════════════════════════════
+   CSS CUSTOM PROPERTY THEMES
+   Ported 1:1 from the original ink_player
+════════════════════════════════════════ */
+
+:root,
+[data-theme='dark'] {
+  --bg:               #0d0d0d;
+  --fg:               #ffffff;
+  --fg2:              rgba(255, 255, 255, 0.88);
+  --fg3:              rgba(255, 255, 255, 0.52);
+  --fg4:              rgba(255, 255, 255, 0.16);
+  --sep:              rgba(255, 255, 255, 0.13);
+  --panel-bg:         rgba(255, 255, 255, 0.045);
+  --panel-border:     rgba(255, 255, 255, 0.1);
+  --item-hover:       rgba(255, 255, 255, 0.07);
+  --item-active:      rgba(255, 255, 255, 0.13);
+  --track-bg:         rgba(255, 255, 255, 0.18);
+  --track-fill:       #ffffff;
+  --track-thumb:      #ffffff;
+  --add-border:       rgba(255, 255, 255, 0.28);
+  --add-color:        rgba(255, 255, 255, 0.52);
+  --add-hover-border: rgba(255, 255, 255, 0.7);
+  --add-hover-color:  #ffffff;
+  --play-bg:          rgba(255, 255, 255, 0.12);
+  --play-border:      rgba(255, 255, 255, 0.32);
+  --play-hover-bg:    rgba(255, 255, 255, 0.2);
+  --loading-bar:      #ffffff;
+  --mq-color:         rgba(255, 255, 255, 0.25);
+  --toast-bg:         rgba(22, 22, 22, 0.97);
+  --toast-border:     rgba(255, 255, 255, 0.25);
+  --toast-color:      #ffffff;
+  --overlay-bg:       rgba(10, 10, 10, 0.97);
+  --hint-color:       rgba(255, 255, 255, 0.32);
+  --drop-ring:        rgba(255, 255, 255, 0.25);
+  --drop-text:        rgba(255, 255, 255, 0.72);
+  --drop-fmts:        rgba(255, 255, 255, 0.35);
+  --scroll-thumb:     rgba(255, 255, 255, 0.22);
+  --waveform-bg:      rgba(255, 255, 255, 0.04);
+  --waveform-bar:     rgba(255, 255, 255, 0.7);
+  --particle-color:   255, 255, 255;
+  --ink-fill0:        rgba(55, 55, 55, 0.96);
+  --ink-fill1:        rgba(15, 15, 15, 0.98);
+  --ink-fill2:        rgba(0, 0, 0, 1);
+  --ink-sheen:        rgba(255, 255, 255, 0.1);
+  --ink-rim:          rgba(255, 255, 255, 0.07);
+  --ink-drop:         rgba(255, 255, 255, 0.65);
+  --ink-glow:         rgba(255, 255, 255, 0.04);
+  --section-label:    rgba(255, 255, 255, 0.35);
+  --badge-bg:         rgba(255, 255, 255, 0.08);
+  --badge-border:     rgba(255, 255, 255, 0.18);
+}
+
+[data-theme='light'] {
+  --bg:               #e8e4dd;
+  --fg:               #0d0d0d;
+  --fg2:              rgba(0, 0, 0, 0.82);
+  --fg3:              rgba(0, 0, 0, 0.5);
+  --fg4:              rgba(0, 0, 0, 0.12);
+  --sep:              rgba(0, 0, 0, 0.12);
+  --panel-bg:         rgba(0, 0, 0, 0.04);
+  --panel-border:     rgba(0, 0, 0, 0.1);
+  --item-hover:       rgba(0, 0, 0, 0.05);
+  --item-active:      rgba(0, 0, 0, 0.1);
+  --track-bg:         rgba(0, 0, 0, 0.14);
+  --track-fill:       #0d0d0d;
+  --track-thumb:      #0d0d0d;
+  --add-border:       rgba(0, 0, 0, 0.25);
+  --add-color:        rgba(0, 0, 0, 0.5);
+  --add-hover-border: rgba(0, 0, 0, 0.6);
+  --add-hover-color:  #0d0d0d;
+  --play-bg:          rgba(0, 0, 0, 0.08);
+  --play-border:      rgba(0, 0, 0, 0.25);
+  --play-hover-bg:    rgba(0, 0, 0, 0.15);
+  --loading-bar:      #0d0d0d;
+  --mq-color:         rgba(0, 0, 0, 0.22);
+  --toast-bg:         rgba(255, 255, 255, 0.97);
+  --toast-border:     rgba(0, 0, 0, 0.18);
+  --toast-color:      #0d0d0d;
+  --overlay-bg:       rgba(232, 228, 221, 0.98);
+  --hint-color:       rgba(0, 0, 0, 0.38);
+  --drop-ring:        rgba(0, 0, 0, 0.2);
+  --drop-text:        rgba(0, 0, 0, 0.65);
+  --drop-fmts:        rgba(0, 0, 0, 0.38);
+  --scroll-thumb:     rgba(0, 0, 0, 0.18);
+  --waveform-bg:      rgba(0, 0, 0, 0.04);
+  --waveform-bar:     rgba(0, 0, 0, 0.65);
+  --particle-color:   0, 0, 0;
+  --ink-fill0:        rgba(175, 165, 152, 0.96);
+  --ink-fill1:        rgba(145, 136, 126, 0.98);
+  --ink-fill2:        rgba(115, 108, 99, 1);
+  --ink-sheen:        rgba(255, 255, 255, 0.65);
+  --ink-rim:          rgba(0, 0, 0, 0.14);
+  --ink-drop:         rgba(0, 0, 0, 0.6);
+  --ink-glow:         rgba(0, 0, 0, 0.04);
+  --section-label:    rgba(0, 0, 0, 0.38);
+  --badge-bg:         rgba(0, 0, 0, 0.07);
+  --badge-border:     rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='ink'] {
+  --bg:               #f5f1ed;
+  --fg:               #1a1a1a;
+  --fg2:              rgba(26, 26, 26, 0.85);
+  --fg3:              rgba(26, 26, 26, 0.52);
+  --fg4:              rgba(26, 26, 26, 0.16);
+  --sep:              rgba(26, 26, 26, 0.12);
+  --panel-bg:         rgba(26, 26, 26, 0.04);
+  --panel-border:     rgba(26, 26, 26, 0.1);
+  --item-hover:       rgba(26, 26, 26, 0.05);
+  --item-active:      rgba(26, 26, 26, 0.1);
+  --track-bg:         rgba(26, 26, 26, 0.14);
+  --track-fill:       #ff6b35;
+  --track-thumb:      #ff6b35;
+  --add-border:       rgba(26, 26, 26, 0.25);
+  --add-color:        rgba(26, 26, 26, 0.5);
+  --add-hover-border: rgba(26, 26, 26, 0.6);
+  --add-hover-color:  #ff6b35;
+  --play-bg:          rgba(26, 26, 26, 0.08);
+  --play-border:      rgba(26, 26, 26, 0.25);
+  --play-hover-bg:    rgba(26, 26, 26, 0.15);
+  --loading-bar:      #ff6b35;
+  --mq-color:         rgba(26, 26, 26, 0.22);
+  --toast-bg:         rgba(255, 255, 255, 0.97);
+  --toast-border:     rgba(26, 26, 26, 0.18);
+  --toast-color:      #1a1a1a;
+  --overlay-bg:       rgba(245, 241, 237, 0.98);
+  --hint-color:       rgba(26, 26, 26, 0.38);
+  --drop-ring:        rgba(26, 26, 26, 0.2);
+  --drop-text:        rgba(26, 26, 26, 0.65);
+  --drop-fmts:        rgba(26, 26, 26, 0.38);
+  --scroll-thumb:     rgba(26, 26, 26, 0.18);
+  --waveform-bg:      rgba(26, 26, 26, 0.04);
+  --waveform-bar:     #ff6b35;
+  --particle-color:   26, 26, 26;
+  --ink-fill0:        rgba(175, 165, 152, 0.96);
+  --ink-fill1:        rgba(145, 136, 126, 0.98);
+  --ink-fill2:        rgba(115, 108, 99, 1);
+  --ink-sheen:        rgba(255, 255, 255, 0.65);
+  --ink-rim:          rgba(26, 26, 26, 0.14);
+  --ink-drop:         rgba(26, 26, 26, 0.6);
+  --ink-glow:         rgba(26, 26, 26, 0.04);
+  --section-label:    rgba(26, 26, 26, 0.38);
+  --badge-bg:         rgba(26, 26, 26, 0.07);
+  --badge-border:     rgba(26, 26, 26, 0.15);
+}

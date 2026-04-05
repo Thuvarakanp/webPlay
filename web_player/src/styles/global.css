@@ -1,0 +1,67 @@
+@import './themes.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  font-family: 'DM Sans', 'Space Mono', monospace;
+  overflow: hidden;
+  color: var(--fg);
+  user-select: none;
+  transition: background 0.5s, color 0.5s;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--scroll-thumb); border-radius: 2px; }
+
+/* ── Loading bar ── */
+#loading-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: var(--loading-bar);
+  width: 0%;
+  transition: width 0.2s;
+  z-index: 50;
+  pointer-events: none;
+  border-radius: 0 2px 2px 0;
+}
+
+/* ── Animated bars (playing indicator) ── */
+@keyframes bdance {
+  from { height: 2px; }
+  to   { height: 13px; }
+}
+
+/* ── Drop ring pulse ── */
+@keyframes pring {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.06); }
+}
+
+/* ── Idle: hide cursor ── */
+body.idle  { cursor: none !important; }
+body.idle.pinned { cursor: auto !important; }
+
+/* ── Mini mode: PiP is open → hide the full player UI ── */
+body.mini-mode #app,
+body.mini-mode #player-bar,
+body.mini-mode #theme-btn,
+body.mini-mode #pin-btn,
+body.mini-mode #eq-btn,
+body.mini-mode #eq-panel,
+body.mini-mode #fullscreen-btn,
+body.mini-mode #playlist-toggle,
+body.mini-mode #mini-btn {
+  display: none !important;
+  pointer-events: none !important;
+}
+body.mini-mode #main-canvas { display: none !important; }

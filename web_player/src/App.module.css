@@ -1,0 +1,59 @@
+.root {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.layout {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  pointer-events: none; /* center is pass-through; panel re-enables */
+}
+
+.center {
+  /* Always truly centered in viewport, ignoring playlist width */
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  padding-bottom: 128px; /* 24px gap + 72px bar + 24px bottom */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hint {
+  position: absolute;
+  bottom: 130px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--hint-color);
+  text-transform: uppercase;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  pointer-events: none;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .center { padding-bottom: 110px; }
+  .hint   { bottom: 116px; }
+}
+
+@media (max-width: 480px) {
+  .center { padding-bottom: 165px; }
+  .hint   { bottom: 170px; }
+}

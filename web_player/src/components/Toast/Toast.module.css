@@ -1,0 +1,27 @@
+.toast {
+  position: fixed;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--toast-bg);
+  border: 1px solid var(--toast-border);
+  color: var(--toast-color);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  padding: 10px 22px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.28s;
+  white-space: nowrap;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+}
+
+.show { opacity: 1; }
+
+@media (max-width: 480px) {
+  .toast { bottom: 175px; }
+}
